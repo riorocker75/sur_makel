@@ -152,7 +152,7 @@ class AdminCtrl extends Controller
         ]);
     }
 
-    function surat_keluar_update(){
+    function surat_keluar_update(Request $request){
               $request->validate([
             'dinas' => 'required'
         ]);
@@ -175,6 +175,58 @@ class AdminCtrl extends Controller
     }
 
 
+    // cetak surat masuk
+
+        function cetak_suratMasuk(Request $request){
+                $dari =$request->dari;
+                $sampai =$request->sampai;  
+
+                $fdari=format_tanggal(date('Y-m-d',strtotime($dari)));
+                $fsampai=format_tanggal(date('Y-m-d',strtotime($sampai)));
+
+                $cek_data=DB::table('surat_masuk')
+                        ->where('status',1)
+                        ->whereBetween('tanggal_masuk', [$dari, $sampai])
+                        ->orderBy('tanggal_masuk','desc')
+                        ->get();
+
+                if(count($cek_data) < 1){
+                     return redirect()->back();
+                }
+                        
+                return view('cetak.cetak_surat_masuk',[
+                    'data' =>$cek_data,
+                    'dari' => $fdari,
+                    'sampai' => $fsampai,
+                ]);
+
+        }
+
+    // cetak surat keluar
+ function cetak_suratKeluar(Request $request){
+                $dari =$request->dari;
+                $sampai =$request->sampai;  
+
+                $fdari=format_tanggal(date('Y-m-d',strtotime($dari)));
+                $fsampai=format_tanggal(date('Y-m-d',strtotime($sampai)));
+
+                $cek_data=DB::table('surat_keluar')
+                        ->where('status',1)
+                        ->whereBetween('tanggal_keluar', [$dari, $sampai])
+                        ->orderBy('tanggal_keluar','desc')
+                        ->get();
+
+                if(count($cek_data) < 1){
+                     return redirect()->back();
+                }
+                        
+                return view('cetak.cetak_surat_keluar',[
+                    'data' =>$cek_data,
+                    'dari' => $fdari,
+                    'sampai' => $fsampai,
+                ]);
+
+        }
 
 
     

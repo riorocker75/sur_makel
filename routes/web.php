@@ -43,8 +43,14 @@ Route::get('/dashboard/surat-masuk/delete/{id}', [AdminCtrl::class,'surat_masuk_
 // surat keluar
 Route::get('/dashboard/surat-keluar/data', [AdminCtrl::class,'surat_keluar']);
 Route::get('/dashboard/surat-keluar/add', [AdminCtrl::class,'surat_keluar_add']);
-Route::post('/dashboard/surat-kelaur/act', [AdminCtrl::class,'surat_kelaur_act']);
+Route::post('/dashboard/surat-keluar/act', [AdminCtrl::class,'surat_keluar_act']);
 Route::get('/dashboard/surat-keluar/edit/{id}', [AdminCtrl::class,'surat_keluar_edit']);
 Route::post('/dashboard/surat-keluar/update', [AdminCtrl::class,'surat_keluar_update']);
 Route::get('/dashboard/surat-keluar/delete/{id}', [AdminCtrl::class,'surat_keluar_delete']);
+
+// cetak surat
+Route::post('/dashboard/cetak/surat-masuk', [AdminCtrl::class,'cetak_suratMasuk']);
+
+Route::post('/dashboard/cetak/surat-keluar', [AdminCtrl::class,'cetak_suratKeluar']);
+
 
