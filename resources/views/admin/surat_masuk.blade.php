@@ -71,7 +71,7 @@
                     <th>Tanggal Masuk</th>
                     <th>Nomor Surat</th>
                     <th>Tanggal Surat</th>
-                    <th>Uraian</th>
+                    <th>Keterangan</th>
                     <th>Edit</th>
                   </tr>
                   </thead>

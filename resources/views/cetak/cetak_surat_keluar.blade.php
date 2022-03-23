@@ -17,7 +17,7 @@
                     <th>Tanggal Keluar</th>
                     <th>Nomor Surat</th>
                     <th>Tanggal Surat</th>
-                    <th>Uraian</th>
+                    <th>Keterangan</th>
                 
                   </tr>
                   </thead>

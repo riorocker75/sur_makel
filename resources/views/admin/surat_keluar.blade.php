@@ -69,7 +69,10 @@
                     <th>Tanggal Keluar</th>
                     <th>Nomor Surat</th>
                     <th>Tanggal Surat</th>
-                    <th>Uraian</th>
+                    <th>Scanan Surat</th>
+                    
+                    <th>Keterangan</th>
+                    
                     <th>Edit</th>
                   </tr>
                   </thead>
@@ -81,6 +84,8 @@
                                 <td>{{$dt->dinas}}</td>
                                 <td>{{format_tanggal(date('Y-m-d',strtotime($dt->tanggal_keluar)))}} </td>
                                 <td>{{$dt->no_surat}} </td>
+                                <td>{{$dt->scan_surat}} </td>
+
                                 <td>{{format_tanggal(date('Y-m-d',strtotime($dt->tanggal_surat)))}}</td>
                                 <td>{{$dt->uraian}} </td>
 
