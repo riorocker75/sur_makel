@@ -1,0 +1,6 @@
+langkah awal
+git pull origin master
+
+
+lalu update
+php artisan migrate:refresh --seed
