@@ -20,7 +20,8 @@ class SuratKeluar extends Migration
                 $table->dateTime('tanggal_keluar')->nullable();
                 $table->text('no_surat')->nullable();
                 $table->dateTime('tanggal_surat');
-                 $table->text('uraian');
+                 $table->text('uraian')->nullable();
+                 $table->text('scan_surat')->nullable();
                $table->text('status')->comment('1=aktif, 0=non')->nullable();
             });
         };

@@ -51,6 +51,11 @@
                                 <label for="exampleInputEmail1">Tanggal Surat</label>
                                 <input type="date" class="form-control" name="tgl_keluar" required>
                             </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Scan Surat</label>
+                                <input type="file" class="form-control" name="scan" required>
+                            </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Uraian</label>
                                 <input type="text" class="form-control" name="uraian">

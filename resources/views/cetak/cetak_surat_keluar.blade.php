@@ -24,12 +24,14 @@
                   <tbody>
                           <?php $no=1; ?>
                       @foreach($data as $dt)
-                                <td>{{$no++}}</td>
-                                <td>{{$dt->dinas}}</td>
-                                <td>{{format_tanggal(date('Y-m-d',strtotime($dt->tanggal_keluar)))}} </td>
-                                <td>{{$dt->no_surat}} </td>
-                                <td>{{format_tanggal(date('Y-m-d',strtotime($dt->tanggal_surat)))}}</td>
-                                <td>{{$dt->uraian}} </td>
+                                 <tr>
+                                    <td>{{$no++}}</td>
+                                    <td>{{$dt->dinas}}</td>
+                                    <td>{{format_tanggal(date('Y-m-d',strtotime($dt->tanggal_keluar)))}} </td>
+                                    <td>{{$dt->no_surat}} </td>
+                                    <td>{{format_tanggal(date('Y-m-d',strtotime($dt->tanggal_surat)))}}</td>
+                                    <td>{{$dt->uraian}} </td>
+                                 </tr>
                       @endforeach
                   </tbody>     
 
