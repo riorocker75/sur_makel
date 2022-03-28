@@ -126,8 +126,15 @@ class AdminCtrl extends Controller
 
     function surat_keluar_act(Request $request){
          $request->validate([
-            'dinas' => 'required'
+            'dinas' => 'required',
+            'scan' => 'file|image|mimes:jpeg,png,jpg|max:2048'
         ]);
+
+           $scan_surat =$request->file('scan');
+        $nf_scan_surat = rand(10000,99999)."_".rand(1000,9999).".".$scan_surat->getClientOriginalExtension();
+        $tujuan_upload = 'upload';
+
+         $scan_surat->move($tujuan_upload,$nf_scan_surat);
 
          $date=date('Y-m-d');
 
@@ -136,6 +143,7 @@ class AdminCtrl extends Controller
             'tanggal_keluar' =>$date,
             'no_surat' =>$request->no_surat,
             'tanggal_surat' =>$request->tgl_keluar,
+            'scan_surat' =>$nf_scan_surat,
             'uraian' => $request->uraian,
             'status' => 1
         ]);
@@ -154,17 +162,34 @@ class AdminCtrl extends Controller
 
     function surat_keluar_update(Request $request){
               $request->validate([
-            'dinas' => 'required'
+            'dinas' => 'required',
+            'scan' => 'file|image|mimes:jpeg,png,jpg|max:2048'
+
         ]);
         $id=$request->id;
 
+        $scan_surat =$request->file('scan');
+        $nf_scan_surat = rand(10000,99999)."_".rand(1000,9999).".".$scan_surat->getClientOriginalExtension();
+        $tujuan_upload = 'upload';
 
-         DB::table('surat_keluar')->where('id',$id)->update([
-            'dinas' => $request->dinas,
-            'no_surat' =>$request->no_surat,
-            'tanggal_surat' =>$request->tgl_keluar,
-            'uraian' => $request->uraian,
-        ]);
+         $scan_surat->move($tujuan_upload,$nf_scan_surat);
+        if($scan_surat == ""){
+             DB::table('surat_keluar')->where('id',$id)->update([
+                'dinas' => $request->dinas,
+                'no_surat' =>$request->no_surat,
+                'tanggal_surat' =>$request->tgl_keluar,
+                'uraian' => $request->uraian,
+              ]);
+        }else{
+               DB::table('surat_keluar')->where('id',$id)->update([
+                'dinas' => $request->dinas,
+                'no_surat' =>$request->no_surat,
+                'tanggal_surat' =>$request->tgl_keluar,
+                'scan_surat' =>$nf_scan_surat,
+                'uraian' => $request->uraian,
+             ]);
+        }
+      
 
         return redirect('/dashboard/surat-keluar/data')->with('alert-success','data tersimpan');
 

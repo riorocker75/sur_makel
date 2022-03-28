@@ -179,40 +179,6 @@ function status_tarik($status){
     }
 }
 
-function preview_file($nama_file){ /*ini menggunakanan paramerter $nama_file*/
-    $url_sh=substr($nama_file,0,-4);
-    $url_klik= url('upload/syarat/'.$nama_file);
-    // ini link dari route
-    $url_pdf=url('review/syarat/'.$url_sh);
-    
-    $link_image="window.open('".$url_klik."','popup','width=600,height=600,scrollbars=no,resizable=no'); return false;";
-    $link_pdf="window.open('".$url_pdf."','popup','width=600,height=600,scrollbars=no,resizable=no'); return false;";
-
-    $file_path = pathinfo(storage_path().'/upload/syarat/'.$nama_file);
-    switch(strtolower($file_path['extension'])){
-        case"jpg":case"png":case"jpeg":
-            echo '
-            <a href="" onclick="'.$link_image.'">';
-            echo "<img src='$url_klik' style='width:100px; height:100px'><br/>";
-            echo "Klik Untuk Lebih Detail";
-            echo "</a>";
-        break;
-        case"pdf":
-            echo '
-            <a href="" onclick="'.$link_pdf.'">';
-            
-            echo "<i class='fas fa-file-pdf' style='font-size:100px;color:#D81F28'></i><br/>";
-            echo "Klik Untuk Lebih Detail<br>";
-            echo "Matikan IDM atau sejenisnya";
-
-            echo "</a>";
-        break;	
-        default:
-        echo "File tidak ditemukan";
-        break;	
-
-    }
-}
 
 // end preview syarat
 

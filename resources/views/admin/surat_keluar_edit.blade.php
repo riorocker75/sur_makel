@@ -31,7 +31,7 @@
               <!-- /.card-header -->
               <div class="card-body">
                   @foreach ($data as $dt)
-                <form action="{{ url('/dashboard/surat-keluar/update') }}" method="post">
+                <form action="{{ url('/dashboard/surat-keluar/update') }}"enctype="multipart/form-data"  method="post">
                        @csrf  
                        @method('POST')
 
@@ -55,6 +55,11 @@
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Tanggal Surat</label>
                                 <input type="date" class="form-control" name="tgl_keluar" value="{{date('Y-m-d',strtotime($dt->tanggal_surat))}}"required>
+                            </div>
+
+                               <div class="form-group">
+                                <label for="exampleInputEmail1">Scan Surat</label>
+                                <input type="file" class="form-control" name="scan" required>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Uraian</label>

@@ -30,7 +30,7 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <form action="{{ url('/dashboard/surat-keluar/act') }}" method="post">
+                <form action="{{ url('/dashboard/surat-keluar/act') }}" enctype="multipart/form-data" method="post">
                        @csrf  
                        @method('POST')
                 <div class="row">
