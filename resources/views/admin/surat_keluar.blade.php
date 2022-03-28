@@ -84,7 +84,8 @@
                                 <td>{{$dt->dinas}}</td>
                                 <td>{{format_tanggal(date('Y-m-d',strtotime($dt->tanggal_keluar)))}} </td>
                                 <td>{{$dt->no_surat}} </td>
-                                <td>{{$dt->scan_surat}} </td>
+                                 <td>{{format_tanggal(date('Y-m-d',strtotime($dt->tanggal_surat)))}} </td>
+
 
                                 <td>{{preview_file($dt->scan_surat)}}</td>
                                 <td>{{$dt->uraian}} </td>
