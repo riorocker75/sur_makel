@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\SuratMasuk;
 use App\Models\SuratKeluar;
 use App\Models\User;
-
+use App\Models\Admin;
 
 
 
@@ -254,6 +254,26 @@ class AdminCtrl extends Controller
         }
 
 
+
+        function pengaturan(){
+            return view('admin.pengaturan');
+        }
+
+        function pengaturan_update(Request $request){
+            $id=1;
+
+            if($request->password != ""){
+                Admin::where('id',$id)->update([
+                    'password' => bcrypt($request->password)
+                ]);
+               return redirect('/dashboard/pengaturan')->with('alert-success','password telah berubah');
+
+            }else{
+               return redirect('/dashboard/pengaturan')->with('alert-success','password tidak berubah');
+
+            }
+
+        }
     
 
 }

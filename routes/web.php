@@ -54,3 +54,9 @@ Route::post('/dashboard/cetak/surat-masuk', [AdminCtrl::class,'cetak_suratMasuk'
 Route::post('/dashboard/cetak/surat-keluar', [AdminCtrl::class,'cetak_suratKeluar']);
 
 
+Route::get('/dashboard/pengaturan', [AdminCtrl::class,'pengaturan']);
+
+Route::post('/dashboard/pengaturan/update', [AdminCtrl::class,'pengaturan_update']);
+
+
+

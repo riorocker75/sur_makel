@@ -22,13 +22,10 @@
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
           <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
+          <a href="{{url('/dashboard/pengaturan')}}" class="dropdown-item">
             <i class="fas fa-wrench mr-2"></i>Pengaturan
           </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-users mr-2"></i> Profil
-          </a>
+   
           <div class="dropdown-divider"></div>
           <a href="{{url('/logout')}}" class="dropdown-item">
             <i class="fas fa-lock mr-2"></i> Keluar
@@ -116,9 +113,9 @@
           <ul class="nav nav-treeview">
             
               <li class="nav-item">
-                <a href="{{url('')}}" class="nav-link">
+                <a href="{{url('/dashboard/pengaturan')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Struktur</p>
+                  <p>ubah Password</p>
                 </a>
               
             </ul>

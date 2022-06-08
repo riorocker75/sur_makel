@@ -3,10 +3,11 @@
 
 <div class="cetak_laporan">
     <div class="judul_laporan">
-      KELURAHAN<br>
-       <span>BINJAI KOTA</span> <br>
-       <span>SURAT Keluar</span><br>
+        Hasil Rekapan Surat Keluar <br>
+        Kantor Lurah Kartini Binjai Kota<br>
         <span>{{$dari}} - {{$sampai}}</span>
+        <br>
+        <br>
     </div>
     <div class="tabel_laporan">
         <table class="tabel_isi">

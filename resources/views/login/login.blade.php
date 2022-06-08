@@ -19,17 +19,35 @@
 <script src="{{asset('plugins/jquery-ui/jquery-ui.min.js')}}"></script>
 
 <script src="{{asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<style>
+.login-page{
+  
 
+}
+.login-page img{
+  width: 100%;
+  max-width: 100%;
+  height: 800px;
+  margin-top:-390px
+}
+.login-box{
+  margin-top:-700px;
+}
+
+</style>
 </head>
 <body class=" login-page">
+      <img src="{{url('image/bg.jpeg')}}" alt="" srcset="">
     
 <div class="login-box">
   <div class="login-logo">
-    <a href=""><b>Masuk</b></a>
+    <a href=""><b style="color:#fff">Selamat Datang </b></a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
+
     <div class="card-body login-card-body">
+   
 
     <form action="{{ url('/login/cek') }}" method="post">
         @csrf  
